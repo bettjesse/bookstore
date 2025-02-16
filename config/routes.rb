@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # Standalone route for returning a borrowing record
+  # Standalone route for returning a borrowed book
   patch '/borrowings/:id/return', to: 'borrowings#return', as: 'return_borrowing'
 
   resource :session

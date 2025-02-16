@@ -1,5 +1,7 @@
 <h1 class="text-2xl font-bold mb-4">Your Borrowed Books</h1>
 
+<%= button_to "Logout", session_path, method: :delete, data: { turbo: false }, class: "bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded mb-4" %>
+
 <p class="mb-4">Email: <%= @user.email_address %></p>
 
 <% if @active_borrowings.any? %>

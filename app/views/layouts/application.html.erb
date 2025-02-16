@@ -23,7 +23,14 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 px-5 flex flex-col">
+      <!-- Flash Messages -->
+      <% flash.each do |key, message| %>
+        <div class="mb-4 p-3 rounded text-white <%= key == 'notice' ? 'bg-green-500' : 'bg-red-500' %>">
+          <%= message %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
