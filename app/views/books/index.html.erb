@@ -1,3 +1,4 @@
+
 <h1 class="text-2xl font-bold mb-4">Available Books</h1>
 <ul class="space-y-4">
   <% @books.each do |book| %>
@@ -11,7 +12,7 @@
         Status: <%= book.available? ? "Available" : "Borrowed" %>
       </p>
       <% if book.available? %>
-  <%= button_to "Borrow", borrow_book_path(book), method: :post, class: "mt-2 bg-green-500 hover:bg-green-700 text-white py-1 px-3 rounded" %>
+  <%= button_to "Borrow", borrow_a_book_path(book), method: :post, data: { turbo: false }, class: "mt-2 bg-green-500 hover:bg-green-700 text-white py-1 px-3 rounded" %>
 <% end %>
 
     </li>
