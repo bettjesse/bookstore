@@ -19,10 +19,10 @@ class BorrowingsController < ApplicationController
     if @borrowing.user == Current.user && @borrowing.returned_at.nil?
       @borrowing.update(returned_at: Time.current)
       flash[:notice] = "Book returned successfully!"
-      redirect_to user_path(Current.user)
+      redirect_to books_path  # Redirect to the books index page
     else
       flash[:alert] = "Unable to return book."
-      redirect_to user_path(Current.user)
+      redirect_to books_path
     end
   end
 end

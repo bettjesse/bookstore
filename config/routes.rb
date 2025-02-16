@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  resources :books, only: [:index, :show]
-  
-  # Standalone route for borrowing a book
-  post '/books/:id/borrow', to: 'borrowings#create', as: 'borrow_a_book'
-  
-  resources :borrowings, only: [] do
+  resources :books, only: [:index, :show] do
     member do
-      patch 'return', to: 'borrowings#return', as: 'return_borrowing'
+      post 'borrow', to: 'borrowings#create'
     end
   end
+
+  # Standalone route for returning a borrowing record
+  patch '/borrowings/:id/return', to: 'borrowings#return', as: 'return_borrowing'
 
   resource :session
   resources :passwords, param: :token
